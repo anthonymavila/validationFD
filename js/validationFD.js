@@ -2,7 +2,8 @@
 /// ValidationForDummies.js
 ///-------------------------
 /// This JavaScript Library is used for building
-/// formvalidations.
+/// form validations.
+/// https://github.com/anthonymavila/validationFD
 
 var ValidationFD = function (params) {
  this.form_id = params.form;

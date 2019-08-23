@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>validation test</title>
+	<link rel="stylesheet" type="text/css" href="css/validationFD.css">
+
+</head>
+<body>
+
+<form id="frm_validator">
+	string <input type="text" id="string_test" value="abc"> <br>
+	numeric <input type="text" id="numeric_test" value="123"> <br>
+	phone <input type="text" id="phone_test" value="(999) 867-9305"> <br>
+	email <input type="text" id="email_test" value="test@example.com"> <br>
+	date <input type="text" id="date_test" value="01/24/1988"> <br>
+	<button type="submit">submit</button>
+</form>
+<hr>
+<div id="error-screen"></div>
+
+<script type="text/javascript" src="js/validationFD.js"></script>
+<script type="text/javascript">
+  var validation = [  
+    ["string_test", "string|require|max:2"],
+    ["numeric_test", "numeric|require|max:30|integer"],
+    ["phone_test", "phone|require|min:7"],
+    ["email_test", "email|require|in:2,4,6"],
+    ["date_test", "date|nullable|between:4,6"],
+  ];
+
+  var messages = [
+  	["string_test|max", "this is a custom error message for string_test when it fails max"],
+  ];
+
+
+  frm_validator = new ValidationFD({
+  	form: "frm_validator",
+  	rules: validation,
+  	messages: messages
+  });
+
+  frm_validator.validate();
+
+</script>
+</body>
+</html>
